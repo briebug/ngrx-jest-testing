@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomersReducer Customer Select Action should set selectedCustomerId 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": 1,
+}
+`;
+
+exports[`CustomersReducer Load Customers Action should set loading to true 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": true,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer Load Customers Fail Action should add error to state 1`] = `
+Object {
+  "entities": Object {},
+  "error": Object {
+    "message": "Error loading customers",
+  },
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer Load Customers Success Action should add customers to state 1`] = `
+Object {
+  "entities": Object {
+    "1": Object {
+      "id": 1,
+      "name": "Test User",
+    },
+  },
+  "error": null,
+  "ids": Array [
+    1,
+  ],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer undefined action should return the default state 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;

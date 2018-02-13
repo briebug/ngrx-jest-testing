@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomersComponent renders markup to snapshot 1`] = `
+<app-customers>
+  <p>
+    
+    customers works!
+  
+  </p>
+  
+</app-customers>
+`;

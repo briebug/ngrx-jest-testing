@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Actions Customer Select should set customer to payload in snapshot 1`] = `
+Object {
+  "id": 1,
+  "name": "Test User",
+}
+`;
