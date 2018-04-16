@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Customer } from '../models/customer';
+import { Customer } from './customer.model';
 
 export enum CustomerActionTypes {
   Load = '[Customer] Load',

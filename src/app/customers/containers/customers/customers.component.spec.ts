@@ -1,29 +1,47 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomersComponent } from './customers.component';
+import { of } from 'rxjs/observable/of';
+import { configureTests, ConfigureFn } from '../../../../test-config.helper'
+
+import { CustomersComponentContainer } from './customers.component';
+import { CustomersComponent } from '../../components/customers/customers.component';
 
 describe('CustomersComponent', () => {
-  let component: CustomersComponent;
-  let fixture: ComponentFixture<CustomersComponent>;
+  let component: CustomersComponentContainer,
+    fixture: ComponentFixture<CustomersComponentContainer>,
+    customers = [
+      { id: 1, name: 'test1' },
+      { id: 2, name: 'test2' },
+      { id: 3, name: 'test3' }
+    ];
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CustomersComponent ]
+  beforeEach(
+    async(() => {
+      const configure: ConfigureFn = testBed => {
+        testBed.configureTestingModule({
+          declarations: [
+            CustomersComponentContainer,
+            CustomersComponent
+          ]
+        });
+      };
+
+      configureTests(configure).then(testBed => {
+        fixture = testBed.createComponent(CustomersComponentContainer);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+      });
     })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CustomersComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  );
 
   test('should create', () => {
     expect(component).toBeTruthy();
   });
 
   test('renders markup to snapshot', () => {
+    component.customers = of(customers);
+    fixture.detectChanges();
+
     expect(fixture).toMatchSnapshot();
   });
 });

@@ -4,11 +4,12 @@ import { provideMockActions } from '@ngrx/effects/testing';
 
 import { cold, hot } from 'jasmine-marbles';
 import { empty } from 'rxjs/observable/empty';
-import { CustomerEffects } from './customer';
-import { CustomersService } from '../services/customers';
 import { Observable } from 'rxjs/Observable';
-import { Load, LoadSuccess, LoadFail } from '../actions/customer';
-import { Customer } from '../models/customer';
+
+import { CustomerEffects } from './customer.effects';
+import { CustomersService } from '@core/services/customer.service';
+import { Load, LoadSuccess, LoadFail } from './customer.actions';
+import { Customer } from './customer.model';
 
 export class TestActions extends Actions {
   constructor() {
@@ -65,7 +66,7 @@ describe('CustomerEffects', () => {
       // mock the load function to be the response
       customersService.load = jest.fn(() => response);
 
-      expect(effects.load$).toBeObservable(expected);
+      expect(effects.load$).toMatchSnapshot();
     });
 
     it('should return a new customer.LoadError, on fail', () => {
@@ -79,7 +80,7 @@ describe('CustomerEffects', () => {
       // mock the load function to be the response
       customersService.load = jest.fn(() => response);
 
-      expect(effects.load$).toBeObservable(expected);
+      expect(effects.load$).toMatchSnapshot();
     });
   });
 });

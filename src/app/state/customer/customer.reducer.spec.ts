@@ -1,17 +1,22 @@
-import { reducer } from './customer';
-import * as fromCustomers from './customer';
-import { Load, LoadSuccess, LoadFail, Select } from '../actions/customer';
-import { Customer } from '../models/customer';
+import { reducer } from './customer.reducer';
+import * as fromCustomers from './customer.reducer';
+import * as selectors from '.';
+import { Load, LoadSuccess, LoadFail, Select } from './customer.actions';
+import { Customer } from './customer.model';
 
 describe('CustomersReducer', () => {
   const initialState: fromCustomers.State = {
-      ids: [],
-      entities: {},
-      loading: false,
-      selectedCustomerId: null,
-      error: null
-    },
-    customers = [{ id: 1, name: 'Test User' }],
+    ids: [],
+    entities: {},
+    loading: false,
+    selectedCustomerId: null,
+    error: null
+  },
+    customers = [
+      { id: 1, name: 'test1' },
+      { id: 2, name: 'test2' },
+      { id: 3, name: 'test3' }
+    ],
     customer = customers[0];
 
   describe('undefined action', () => {
@@ -59,6 +64,17 @@ describe('CustomersReducer', () => {
 
       expect(result).toMatchSnapshot();
       expect(fromCustomers.getSelectedId(result)).toEqual(customer.id);
+    });
+  });
+
+  describe('GetSelectedCustomer selector', () => {
+    test('should select customer', () => {
+      const action = new LoadSuccess(customers);
+      let result = reducer(initialState, action);
+
+      result = reducer(result, new Select(customer));
+
+      expect(selectors.getSelectedCustomer.projector(result.entities, result.selectedCustomerId)).toMatchSnapshot();
     });
   });
 });

@@ -1,5 +1,5 @@
-import * as CustomerActions from './customer';
-import { Customer } from '../models/customer';
+import * as CustomerActions from './customer.actions';
+import { Customer } from './customer.model';
 
 describe('Customer Actions', () => {
   const customer = <Customer>{ id: 1, name: 'Test User' };
@@ -7,7 +7,8 @@ describe('Customer Actions', () => {
   describe('Load Customers', () => {
     test('should create Customer Load Action', () => {
       const action = new CustomerActions.Load();
-      expect(action.type).toBe('[Customer] Load');
+
+      expect(action.type).toMatchSnapshot();
     });
   });
 
@@ -16,8 +17,8 @@ describe('Customer Actions', () => {
       const payload = <Customer[]>[customer],
         action = new CustomerActions.LoadSuccess(payload);
 
-      expect(action.type).toBe('[Customer] Load Success');
-      expect(action.payload).toBe(payload);
+      expect(action.type).toMatchSnapshot();
+      expect(action.payload).toMatchSnapshot();
     });
   });
 
@@ -26,8 +27,8 @@ describe('Customer Actions', () => {
       const error = { status: 1, error: 'Error loading customer' },
         action = new CustomerActions.LoadFail(error);
 
-      expect(action.type).toBe('[Customer] Load Fail');
-      expect(action.error).toBe(error);
+      expect(action.type).toMatchSnapshot();
+      expect(action.error).toMatchSnapshot();
     });
   });
 
@@ -35,8 +36,8 @@ describe('Customer Actions', () => {
     test('should set payload to customer', () => {
       const action = new CustomerActions.Select(customer);
 
-      expect(action.type).toBe('[Customer] Select');
-      expect(action.payload).toBe(customer);
+      expect(action.type).toMatchSnapshot();
+      expect(action.payload).toMatchSnapshot();
     });
 
     test('should set customer to payload in snapshot', () => {

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Customer Actions Customer Select should set customer to payload in snapshot 1`] = `
+Object {
+  "id": 1,
+  "name": "Test User",
+}
+`;
+
+exports[`Customer Actions Customer Select should set payload to customer 1`] = `"[Customer] Select"`;
+
+exports[`Customer Actions Customer Select should set payload to customer 2`] = `
+Object {
+  "id": 1,
+  "name": "Test User",
+}
+`;
+
+exports[`Customer Actions Load Customers Success should create Customer Load Fail Action 1`] = `"[Customer] Load Fail"`;
+
+exports[`Customer Actions Load Customers Success should create Customer Load Fail Action 2`] = `
+Object {
+  "error": "Error loading customer",
+  "status": 1,
+}
+`;
+
+exports[`Customer Actions Load Customers Success should create Customer Load Success Action 1`] = `"[Customer] Load Success"`;
+
+exports[`Customer Actions Load Customers Success should create Customer Load Success Action 2`] = `
+Array [
+  Object {
+    "id": 1,
+    "name": "Test User",
+  },
+]
+`;
+
+exports[`Customer Actions Load Customers should create Customer Load Action 1`] = `"[Customer] Load"`;

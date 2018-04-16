@@ -1,7 +1,7 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 
-import { Customer } from '../models/customer';
-import { CustomerActions, CustomerActionTypes } from '../actions/customer';
+import { Customer } from './customer.model';
+import { CustomerActions, CustomerActionTypes } from './customer.actions';
 
 export interface State extends EntityState<Customer> {
   selectedCustomerId: number | null;
