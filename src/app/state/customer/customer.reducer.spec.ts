@@ -50,7 +50,7 @@ describe('CustomersReducer', () => {
     test('should add error to state', () => {
       const action = new LoadFail({ status: 1 }),
         result = reducer(initialState, action),
-        error = { message: 'Error loading customers' };
+        error = 'Error loading customers';
 
       expect(result).toMatchSnapshot();
       expect(fromCustomers.getError(result)).toEqual(error);

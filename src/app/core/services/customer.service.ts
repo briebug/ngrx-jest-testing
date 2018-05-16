@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
-import { Customer } from '@state/customer/customer.model';
+import { Customer } from '../../state/customer/customer.model';
 
 @Injectable()
 export class CustomersService {

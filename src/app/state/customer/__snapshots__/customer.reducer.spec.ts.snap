@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomersReducer Customer Select Action should set selectedCustomerId 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": 1,
+}
+`;
+
+exports[`CustomersReducer GetSelectedCustomer selector should select customer 1`] = `
+Object {
+  "id": 1,
+  "name": "test1",
+}
+`;
+
+exports[`CustomersReducer Load Customers Action should set loading to true 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": true,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer Load Customers Fail Action should add error to state 1`] = `
+Object {
+  "entities": Object {},
+  "error": "Error loading customers",
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer Load Customers Success Action should add customers to state 1`] = `
+Object {
+  "entities": Object {
+    "1": Object {
+      "id": 1,
+      "name": "test1",
+    },
+    "2": Object {
+      "id": 2,
+      "name": "test2",
+    },
+    "3": Object {
+      "id": 3,
+      "name": "test3",
+    },
+  },
+  "error": null,
+  "ids": Array [
+    1,
+    2,
+    3,
+  ],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;
+
+exports[`CustomersReducer undefined action should return the default state 1`] = `
+Object {
+  "entities": Object {},
+  "error": null,
+  "ids": Array [],
+  "loading": false,
+  "selectedCustomerId": null,
+}
+`;

@@ -4,9 +4,9 @@ import { Customer } from './customer.model';
 import { CustomerActions, CustomerActionTypes } from './customer.actions';
 
 export interface State extends EntityState<Customer> {
-  selectedCustomerId: number | null;
+  selectedCustomerId: number;
   loading: boolean;
-  error: any;
+  error: string;
 }
 
 export const adapter: EntityAdapter<Customer> = createEntityAdapter<Customer>();
@@ -27,7 +27,8 @@ export function reducer(state = initialState, action: CustomerActions): State {
     }
 
     case CustomerActionTypes.LoadFail: {
-      return { ...state, error: { message: 'Error loading customers' } };
+      console.log(action.error);
+      return { ...state, error: 'Error loading customers' };
     }
 
     case CustomerActionTypes.Select: {

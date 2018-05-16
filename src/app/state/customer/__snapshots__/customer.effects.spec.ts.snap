@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomerEffects load$ should return a new customer.LoadError, on fail 1`] = `
+Actions {
+  "_isScalar": false,
+  "operator": SwitchMapOperator {
+    "project": [Function],
+    "resultSelector": undefined,
+  },
+  "source": Actions {
+    "_isScalar": false,
+    "operator": FilterOperator {
+      "predicate": [Function],
+      "thisArg": undefined,
+    },
+    "source": TestActions {
+      "_isScalar": false,
+      "source": TestHotObservable {
+        "_isScalar": false,
+        "error": undefined,
+        "marbles": "-a",
+        "source": SubscriptionLoggable {
+          "_isScalar": false,
+          "closed": false,
+          "hasError": false,
+          "isStopped": false,
+          "messages": Array [
+            Object {
+              "frame": 10,
+              "notification": Notification {
+                "error": undefined,
+                "hasValue": true,
+                "kind": "N",
+                "value": Load {
+                  "type": "[Customer] Load",
+                },
+              },
+            },
+          ],
+          "observers": Array [],
+          "scheduler": TestScheduler {
+            "SchedulerAction": [Function],
+            "actions": Array [],
+            "active": false,
+            "assertDeepEqual": [Function],
+            "coldObservables": Array [
+              SubscriptionLoggable {
+                "_isScalar": false,
+                "_subscribe": [Function],
+                "messages": Array [
+                  Object {
+                    "frame": 0,
+                    "notification": Notification {
+                      "error": "error",
+                      "hasValue": false,
+                      "kind": "E",
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "scheduler": [Circular],
+                "subscriptions": Array [],
+              },
+              SubscriptionLoggable {
+                "_isScalar": false,
+                "_subscribe": [Function],
+                "messages": Array [
+                  Object {
+                    "frame": 10,
+                    "notification": Notification {
+                      "error": undefined,
+                      "hasValue": true,
+                      "kind": "N",
+                      "value": LoadFail {
+                        "error": "error",
+                        "type": "[Customer] Load Fail",
+                      },
+                    },
+                  },
+                ],
+                "scheduler": [Circular],
+                "subscriptions": Array [],
+              },
+            ],
+            "flushTests": Array [],
+            "frame": 0,
+            "hotObservables": Array [
+              [Circular],
+            ],
+            "index": -1,
+            "maxFrames": 750,
+            "now": [Function],
+            "scheduled": undefined,
+          },
+          "subscriptions": Array [],
+          "thrownError": null,
+        },
+        "values": Object {
+          "a": Load {
+            "type": "[Customer] Load",
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`CustomerEffects load$ should return a new customer.LoadSuccess, with the customers, on success 1`] = `
+Actions {
+  "_isScalar": false,
+  "operator": SwitchMapOperator {
+    "project": [Function],
+    "resultSelector": undefined,
+  },
+  "source": Actions {
+    "_isScalar": false,
+    "operator": FilterOperator {
+      "predicate": [Function],
+      "thisArg": undefined,
+    },
+    "source": TestActions {
+      "_isScalar": false,
+      "source": TestHotObservable {
+        "_isScalar": false,
+        "error": undefined,
+        "marbles": "-a",
+        "source": SubscriptionLoggable {
+          "_isScalar": false,
+          "closed": false,
+          "hasError": false,
+          "isStopped": false,
+          "messages": Array [
+            Object {
+              "frame": 10,
+              "notification": Notification {
+                "error": undefined,
+                "hasValue": true,
+                "kind": "N",
+                "value": Load {
+                  "type": "[Customer] Load",
+                },
+              },
+            },
+          ],
+          "observers": Array [],
+          "scheduler": TestScheduler {
+            "SchedulerAction": [Function],
+            "actions": Array [],
+            "active": false,
+            "assertDeepEqual": [Function],
+            "coldObservables": Array [
+              SubscriptionLoggable {
+                "_isScalar": false,
+                "_subscribe": [Function],
+                "messages": Array [
+                  Object {
+                    "frame": 0,
+                    "notification": Notification {
+                      "error": undefined,
+                      "hasValue": true,
+                      "kind": "N",
+                      "value": Array [
+                        Object {
+                          "id": 1,
+                          "name": "User 1",
+                        },
+                        Object {
+                          "id": 2,
+                          "name": "User 2",
+                        },
+                      ],
+                    },
+                  },
+                  Object {
+                    "frame": 10,
+                    "notification": Notification {
+                      "error": undefined,
+                      "hasValue": false,
+                      "kind": "C",
+                      "value": undefined,
+                    },
+                  },
+                ],
+                "scheduler": [Circular],
+                "subscriptions": Array [],
+              },
+              SubscriptionLoggable {
+                "_isScalar": false,
+                "_subscribe": [Function],
+                "messages": Array [
+                  Object {
+                    "frame": 10,
+                    "notification": Notification {
+                      "error": undefined,
+                      "hasValue": true,
+                      "kind": "N",
+                      "value": LoadSuccess {
+                        "payload": Array [
+                          Object {
+                            "id": 1,
+                            "name": "User 1",
+                          },
+                          Object {
+                            "id": 2,
+                            "name": "User 2",
+                          },
+                        ],
+                        "type": "[Customer] Load Success",
+                      },
+                    },
+                  },
+                ],
+                "scheduler": [Circular],
+                "subscriptions": Array [],
+              },
+            ],
+            "flushTests": Array [],
+            "frame": 0,
+            "hotObservables": Array [
+              [Circular],
+            ],
+            "index": -1,
+            "maxFrames": 750,
+            "now": [Function],
+            "scheduled": undefined,
+          },
+          "subscriptions": Array [],
+          "thrownError": null,
+        },
+        "values": Object {
+          "a": Load {
+            "type": "[Customer] Load",
+          },
+        },
+      },
+    },
+  },
+}
+`;

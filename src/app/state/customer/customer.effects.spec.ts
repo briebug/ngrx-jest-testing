@@ -7,7 +7,7 @@ import { empty } from 'rxjs/observable/empty';
 import { Observable } from 'rxjs/Observable';
 
 import { CustomerEffects } from './customer.effects';
-import { CustomersService } from '@core/services/customer.service';
+import { CustomersService } from '../../core/services/customer.service';
 import { Load, LoadSuccess, LoadFail } from './customer.actions';
 import { Customer } from './customer.model';
 

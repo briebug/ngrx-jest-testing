@@ -13,7 +13,7 @@ import {
 } from './customer.actions';
 
 import { Customer } from './customer.model';
-import { CustomersService } from '@core/services/customer.service';
+import { CustomersService } from '../../core/services/customer.service';
 
 @Injectable()
 export class CustomerEffects {

@@ -6,7 +6,7 @@ import { configureTests, ConfigureFn } from '../../../../test-config.helper'
 import { CustomersComponentContainer } from './customers.component';
 import { CustomersComponent } from '../../components/customers/customers.component';
 
-describe('CustomersComponent', () => {
+describe('CustomersComponentContainer', () => {
   let component: CustomersComponentContainer,
     fixture: ComponentFixture<CustomersComponentContainer>,
     customers = [
@@ -39,7 +39,6 @@ describe('CustomersComponent', () => {
   });
 
   test('renders markup to snapshot', () => {
-    component.customers = of(customers);
     fixture.detectChanges();
 
     expect(fixture).toMatchSnapshot();

@@ -1,40 +1,41 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 
-import * as fromCustomers from './customer';
-
-export interface CustomersState {
-  customers: fromCustomers.State;
-}
+import * as fromCustomers from './customer.reducer';
+import { State as CustomersState } from './customer.reducer';
 
 export const reducers = {
   customers: fromCustomers.reducer
 };
 
+
 export const getCustomersState = createFeatureSelector<CustomersState>(
-  'customers'
-);
-
-export const getCustomerEntitiesState = createSelector(
-  getCustomersState,
-  state => state.customers
-);
-
-export const getSelectedCustomerId = createSelector(
-  getCustomerEntitiesState,
-  fromCustomers.getSelectedId
+  'customer'
 );
 
 export const {
-  selectIds: getCustomerIds,
-  selectEntities: getCustomerEntities,
   selectAll: getAllCustomers,
+  selectEntities: getCustomerEntities,
+  selectIds: getCustomerIds,
   selectTotal: getTotalCustomers
-} = fromCustomers.adapter.getSelectors(getCustomerEntitiesState);
+} = fromCustomers.adapter.getSelectors(getCustomersState);
+
+export const getSelectedCustomerId = createSelector(
+  getCustomersState,
+  fromCustomers.getSelectedId
+);
 
 export const getSelectedCustomer = createSelector(
   getCustomerEntities,
-  getSelectedCustomerId,
-  (entities, selectedId) => {
-    return selectedId && entities[selectedId];
-  }
+  fromCustomers.getSelectedId,
+  (entities, id) => entities[id]
+);
+
+export const getLoading = createSelector(
+  getCustomersState,
+  fromCustomers.getLoading
+);
+
+export const getError = createSelector(
+  getCustomersState,
+  fromCustomers.getError
 );

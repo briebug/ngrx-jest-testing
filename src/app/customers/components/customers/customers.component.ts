@@ -10,7 +10,7 @@ import { Customer } from '@state/customer/customer.model';
 export class CustomersComponent implements OnInit {
   @Input() customers: Customer[];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
