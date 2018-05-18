@@ -1,7 +1,6 @@
 import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { configureTests, ConfigureFn } from '../test-config.helper'
-
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -12,9 +11,8 @@ describe('AppComponent', () => {
     async(() => {
       const configure: ConfigureFn = testBed => {
         testBed.configureTestingModule({
-          declarations: [
-            AppComponent
-          ]
+          declarations: [AppComponent],
+          imports: [RouterTestingModule]
         });
       };
 

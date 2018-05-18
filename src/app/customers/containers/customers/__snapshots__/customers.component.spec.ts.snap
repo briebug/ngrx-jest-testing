@@ -1,23 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CustomersComponent renders markup to snapshot 1`] = `
+exports[`CustomersComponentContainer renders markup to snapshot 1`] = `
 <app-customers-container
-  customers={[Function ScalarObservable]}
+  customers$={[Function TestHotObservable]}
+  store={[Function Object]}
 >
-  <app-customers
-    ng-reflect-customers="[object Object],[object Object"
-  >
+  <h2>
+    Customers
+  </h2><app-customers>
     <ul>
       
-      <li>
-        Customer: 1 - test1 
-      </li>
-      <li>
-        Customer: 2 - test2 
-      </li>
-      <li>
-        Customer: 3 - test3 
-      </li>
     </ul>
   </app-customers>
 </app-customers-container>

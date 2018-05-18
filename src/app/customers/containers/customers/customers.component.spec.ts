@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Store } from '@ngrx/store';
+import { hot } from 'jasmine-marbles';
 import { of } from 'rxjs/observable/of';
 import { configureTests, ConfigureFn } from '../../../../test-config.helper'
-
 import { CustomersComponentContainer } from './customers.component';
 import { CustomersComponent } from '../../components/customers/customers.component';
 
@@ -22,6 +22,15 @@ describe('CustomersComponentContainer', () => {
           declarations: [
             CustomersComponentContainer,
             CustomersComponent
+          ],
+          providers: [
+            {
+              provide: Store,
+              useValue: {
+                dispatch: jest.fn(),
+                pipe: jest.fn(() => hot('-a', { a: customers }))
+              }
+            }
           ]
         });
       };
