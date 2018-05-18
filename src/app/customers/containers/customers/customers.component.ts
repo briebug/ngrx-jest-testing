@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store, select } from '@ngrx/store';
 
-import { Customer } from '../../../state/customer/customer.model';
-import { AppState } from '../../../state/app.interfaces';
+import { Customer } from '@state/customer/customer.model';
+import { AppState } from '@state/app.interfaces';
 import { Load } from '../../../state/customer/customer.actions';
 import { getAllCustomers } from '../../../state/customer';
 

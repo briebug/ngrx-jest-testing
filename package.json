@@ -45,10 +45,6 @@
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
   },
-  "jest": {
-    "preset": "jest-preset-angular",
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts"
-  },
   "prettier": {
     "singleQuote": true
   }
