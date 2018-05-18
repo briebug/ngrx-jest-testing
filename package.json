@@ -38,6 +38,7 @@
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
     "jasmine-marbles": "^0.2.0",
+    "jest": "^22.4.4",
     "jest-preset-angular": "^5.0.0",
     "ngrx-store-freeze": "^0.2.1",
     "protractor": "~5.1.2",
