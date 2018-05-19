@@ -1,14 +1,11 @@
 import { TestBed } from '@angular/core/testing';
+import { CustomersService } from '@core/services/customer.service';
 import { Actions } from '@ngrx/effects';
-import { provideMockActions } from '@ngrx/effects/testing';
-
 import { cold, hot } from 'jasmine-marbles';
-import { empty } from 'rxjs/observable/empty';
 import { Observable } from 'rxjs/Observable';
-
+import { empty } from 'rxjs/observable/empty';
+import { Load, LoadFail, LoadSuccess } from './customer.actions';
 import { CustomerEffects } from './customer.effects';
-import { CustomersService } from '../../core/services/customer.service';
-import { Load, LoadSuccess, LoadFail } from './customer.actions';
 import { Customer } from './customer.model';
 
 export class TestActions extends Actions {

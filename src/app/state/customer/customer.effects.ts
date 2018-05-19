@@ -1,19 +1,17 @@
-import { Injectable, InjectionToken, Optional, Inject } from '@angular/core';
-import { Effect, Actions, ofType } from '@ngrx/effects';
+import { Injectable } from '@angular/core';
+import { CustomersService } from '@core/services/customer.service';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { map, switchMap, catchError } from 'rxjs/operators';
-
+import { catchError, map, switchMap } from 'rxjs/operators';
 import {
   CustomerActionTypes,
   Load,
-  LoadSuccess,
-  LoadFail
+  LoadFail,
+  LoadSuccess
 } from './customer.actions';
-
 import { Customer } from './customer.model';
-import { CustomersService } from '../../core/services/customer.service';
 
 @Injectable()
 export class CustomerEffects {

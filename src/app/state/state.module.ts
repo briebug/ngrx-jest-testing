@@ -1,13 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import {
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  SkipSelf
+} from '@angular/core';
+import { environment } from '@env';
 import { EffectsModule } from '@ngrx/effects';
-import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import {
+  RouterStateSerializer,
+  StoreRouterConnectingModule
+} from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../../environments/environment';
+import { CustomerEffects } from '@state/customer/customer.effects';
 import { appMetaReducers, appReducer } from './app.reducer';
 import { CustomRouterStateSerializer } from './shared/utils';
-import { CustomerEffects } from '@state/customer/customer.effects';
 
 @NgModule({
   imports: [
@@ -19,9 +27,7 @@ import { CustomerEffects } from '@state/customer/customer.effects';
   ],
   declarations: []
 })
-
 export class StateModule {
-
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: StateModule,
@@ -31,15 +37,23 @@ export class StateModule {
          * A custom RouterStateSerializer is used to parse the `RouterStateSnapshot` provided
          * by `@ngrx/router-store` to include only the desired pieces of the snapshot.
          */
-        { provide: RouterStateSerializer, useClass: CustomRouterStateSerializer }
+        {
+          provide: RouterStateSerializer,
+          useClass: CustomRouterStateSerializer
+        }
       ]
     };
   }
 
-  constructor(@Optional() @SkipSelf() parentModule: StateModule) {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: StateModule
+  ) {
     if (parentModule) {
       throw new Error(
-        'StateModule is already loaded. Import it in the AppModule only');
+        'StateModule is already loaded. Import it in the AppModule only'
+      );
     }
   }
 }
